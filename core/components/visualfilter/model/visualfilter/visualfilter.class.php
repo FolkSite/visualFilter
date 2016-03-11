@@ -1,9 +1,9 @@
 <?php
 
 /**
- * The base class for visualfilter.
+ * The base class for visualFilter.
  */
-class visualfilter {
+class visualFilter {
 	/* @var modX $modx */
 	public $modx;
 

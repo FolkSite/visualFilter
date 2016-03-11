@@ -1,14 +1,14 @@
-visualfilter.window.CreateItem = function (config) {
+visualFilter.window.CreateFilter = function (config) {
 	config = config || {};
 	if (!config.id) {
-		config.id = 'visualfilter-item-window-create';
+		config.id = 'visualfilter-filter-window-create';
 	}
 	Ext.applyIf(config, {
-		title: _('visualfilter_item_create'),
+		title: _('vf_filter_create'),
 		width: 550,
 		autoHeight: true,
-		url: visualfilter.config.connector_url,
-		action: 'mgr/item/create',
+		url: visualFilter.config.connector_url,
+		action: 'mgr/filter/create',
 		fields: this.getFields(config),
 		keys: [{
 			key: Ext.EventObject.ENTER, shift: true, fn: function () {
@@ -16,31 +16,31 @@ visualfilter.window.CreateItem = function (config) {
 			}, scope: this
 		}]
 	});
-	visualfilter.window.CreateItem.superclass.constructor.call(this, config);
+    visualFilter.window.CreateFilter.superclass.constructor.call(this, config);
 };
-Ext.extend(visualfilter.window.CreateItem, MODx.Window, {
+Ext.extend(visualFilter.window.CreateFilter, MODx.Window, {
 
 	getFields: function (config) {
 		return [{
 			xtype: 'textfield',
-			fieldLabel: _('visualfilter_item_name'),
+			fieldLabel: _('vf_filter_name'),
 			name: 'name',
 			id: config.id + '-name',
 			anchor: '99%',
-			allowBlank: false,
+			allowBlank: false
 		}, {
 			xtype: 'textarea',
-			fieldLabel: _('visualfilter_item_description'),
+			fieldLabel: _('vf_filter_description'),
 			name: 'description',
 			id: config.id + '-description',
 			height: 150,
 			anchor: '99%'
 		}, {
 			xtype: 'xcheckbox',
-			boxLabel: _('visualfilter_item_active'),
+			boxLabel: _('vf_filter_active'),
 			name: 'active',
 			id: config.id + '-active',
-			checked: true,
+			checked: true
 		}];
 	},
 
@@ -48,20 +48,20 @@ Ext.extend(visualfilter.window.CreateItem, MODx.Window, {
 	}
 
 });
-Ext.reg('visualfilter-item-window-create', visualfilter.window.CreateItem);
+Ext.reg('visualfilter-filter-window-create', visualFilter.window.CreateFilter);
 
 
-visualfilter.window.UpdateItem = function (config) {
+visualFilter.window.UpdateFilter = function (config) {
 	config = config || {};
 	if (!config.id) {
-		config.id = 'visualfilter-item-window-update';
+		config.id = 'visualfilter-filter-window-update';
 	}
 	Ext.applyIf(config, {
-		title: _('visualfilter_item_update'),
+		title: _('vf_filter_update'),
 		width: 550,
 		autoHeight: true,
-		url: visualfilter.config.connector_url,
-		action: 'mgr/item/update',
+		url: visualFilter.config.connector_url,
+		action: 'mgr/filter/update',
 		fields: this.getFields(config),
 		keys: [{
 			key: Ext.EventObject.ENTER, shift: true, fn: function () {
@@ -69,34 +69,34 @@ visualfilter.window.UpdateItem = function (config) {
 			}, scope: this
 		}]
 	});
-	visualfilter.window.UpdateItem.superclass.constructor.call(this, config);
+    visualFilter.window.UpdateFilter.superclass.constructor.call(this, config);
 };
-Ext.extend(visualfilter.window.UpdateItem, MODx.Window, {
+Ext.extend(visualFilter.window.UpdateFilter, MODx.Window, {
 
 	getFields: function (config) {
 		return [{
 			xtype: 'hidden',
 			name: 'id',
-			id: config.id + '-id',
+			id: config.id + '-id'
 		}, {
 			xtype: 'textfield',
-			fieldLabel: _('visualfilter_item_name'),
+			fieldLabel: _('vf_filter_name'),
 			name: 'name',
 			id: config.id + '-name',
 			anchor: '99%',
-			allowBlank: false,
+			allowBlank: false
 		}, {
 			xtype: 'textarea',
-			fieldLabel: _('visualfilter_item_description'),
+			fieldLabel: _('vf_filter_description'),
 			name: 'description',
 			id: config.id + '-description',
 			anchor: '99%',
-			height: 150,
+			height: 150
 		}, {
 			xtype: 'xcheckbox',
-			boxLabel: _('visualfilter_item_active'),
+			boxLabel: _('vf_filter_active'),
 			name: 'active',
-			id: config.id + '-active',
+			id: config.id + '-active'
 		}];
 	},
 
@@ -104,4 +104,4 @@ Ext.extend(visualfilter.window.UpdateItem, MODx.Window, {
 	}
 
 });
-Ext.reg('visualfilter-item-window-update', visualfilter.window.UpdateItem);
+Ext.reg('visualfilter-filter-window-update', visualFilter.window.UpdateFilter);

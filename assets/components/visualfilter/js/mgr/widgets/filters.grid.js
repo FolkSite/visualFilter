@@ -1,21 +1,21 @@
-visualfilter.grid.Items = function (config) {
+visualFilter.grid.Filters = function (config) {
 	config = config || {};
 	if (!config.id) {
-		config.id = 'visualfilter-grid-items';
+		config.id = 'visualfilter-grid-filters';
 	}
 	Ext.applyIf(config, {
-		url: visualfilter.config.connector_url,
+		url: visualFilter.config.connector_url,
 		fields: this.getFields(config),
 		columns: this.getColumns(config),
 		tbar: this.getTopBar(config),
 		sm: new Ext.grid.CheckboxSelectionModel(),
 		baseParams: {
-			action: 'mgr/item/getlist'
+			action: 'mgr/filter/getlist'
 		},
 		listeners: {
 			rowDblClick: function (grid, rowIndex, e) {
 				var row = grid.store.getAt(rowIndex);
-				this.updateItem(grid, e, row);
+				this.updateFilter(grid, e, row);
 			}
 		},
 		viewConfig: {
@@ -32,9 +32,9 @@ visualfilter.grid.Items = function (config) {
 		},
 		paging: true,
 		remoteSort: true,
-		autoHeight: true,
+		autoHeight: true
 	});
-	visualfilter.grid.Items.superclass.constructor.call(this, config);
+    visualFilter.grid.Filters.superclass.constructor.call(this, config);
 
 	// Clear selection on grid refresh
 	this.store.on('load', function () {
@@ -43,21 +43,21 @@ visualfilter.grid.Items = function (config) {
 		}
 	}, this);
 };
-Ext.extend(visualfilter.grid.Items, MODx.grid.Grid, {
+Ext.extend(visualFilter.grid.Filters, MODx.grid.Grid, {
 	windows: {},
 
 	getMenu: function (grid, rowIndex) {
 		var ids = this._getSelectedIds();
 
 		var row = grid.getStore().getAt(rowIndex);
-		var menu = visualfilter.utils.getMenu(row.data['actions'], this, ids);
+		var menu = visualFilter.utils.getMenu(row.data['actions'], this, ids);
 
 		this.addContextMenuItem(menu);
 	},
 
-	createItem: function (btn, e) {
+	createFilter: function (btn, e) {
 		var w = MODx.load({
-			xtype: 'visualfilter-item-window-create',
+			xtype: 'visualfilter-filter-window-create',
 			id: Ext.id(),
 			listeners: {
 				success: {
@@ -72,7 +72,7 @@ Ext.extend(visualfilter.grid.Items, MODx.grid.Grid, {
 		w.show(e.target);
 	},
 
-	updateItem: function (btn, e, row) {
+	updateFilter: function (btn, e, row) {
 		if (typeof(row) != 'undefined') {
 			this.menu.record = row.data;
 		}
@@ -84,14 +84,14 @@ Ext.extend(visualfilter.grid.Items, MODx.grid.Grid, {
 		MODx.Ajax.request({
 			url: this.config.url,
 			params: {
-				action: 'mgr/item/get',
+				action: 'mgr/filter/get',
 				id: id
 			},
 			listeners: {
 				success: {
 					fn: function (r) {
 						var w = MODx.load({
-							xtype: 'visualfilter-item-window-update',
+							xtype: 'visualfilter-filter-window-update',
 							id: Ext.id(),
 							record: r,
 							listeners: {
@@ -111,22 +111,22 @@ Ext.extend(visualfilter.grid.Items, MODx.grid.Grid, {
 		});
 	},
 
-	removeItem: function (act, btn, e) {
+	removeFilter: function (act, btn, e) {
 		var ids = this._getSelectedIds();
 		if (!ids.length) {
 			return false;
 		}
 		MODx.msg.confirm({
 			title: ids.length > 1
-				? _('visualfilter_items_remove')
-				: _('visualfilter_item_remove'),
+				? _('vf_items_remove')
+				: _('vf_item_remove'),
 			text: ids.length > 1
-				? _('visualfilter_items_remove_confirm')
-				: _('visualfilter_item_remove_confirm'),
+				? _('vf_items_remove_confirm')
+				: _('vf_item_remove_confirm'),
 			url: this.config.url,
 			params: {
-				action: 'mgr/item/remove',
-				ids: Ext.util.JSON.encode(ids),
+				action: 'mgr/filter/remove',
+				ids: Ext.util.JSON.encode(ids)
 			},
 			listeners: {
 				success: {
@@ -139,7 +139,7 @@ Ext.extend(visualfilter.grid.Items, MODx.grid.Grid, {
 		return true;
 	},
 
-	disableItem: function (act, btn, e) {
+	disableFilter: function (act, btn, e) {
 		var ids = this._getSelectedIds();
 		if (!ids.length) {
 			return false;
@@ -147,8 +147,8 @@ Ext.extend(visualfilter.grid.Items, MODx.grid.Grid, {
 		MODx.Ajax.request({
 			url: this.config.url,
 			params: {
-				action: 'mgr/item/disable',
-				ids: Ext.util.JSON.encode(ids),
+				action: 'mgr/filter/disable',
+				ids: Ext.util.JSON.encode(ids)
 			},
 			listeners: {
 				success: {
@@ -160,7 +160,7 @@ Ext.extend(visualfilter.grid.Items, MODx.grid.Grid, {
 		})
 	},
 
-	enableItem: function (act, btn, e) {
+	enableFilter: function (act, btn, e) {
 		var ids = this._getSelectedIds();
 		if (!ids.length) {
 			return false;
@@ -168,8 +168,8 @@ Ext.extend(visualfilter.grid.Items, MODx.grid.Grid, {
 		MODx.Ajax.request({
 			url: this.config.url,
 			params: {
-				action: 'mgr/item/enable',
-				ids: Ext.util.JSON.encode(ids),
+				action: 'mgr/filter/enable',
+				ids: Ext.util.JSON.encode(ids)
 			},
 			listeners: {
 				success: {
@@ -187,30 +187,45 @@ Ext.extend(visualfilter.grid.Items, MODx.grid.Grid, {
 
 	getColumns: function (config) {
 		return [{
-			header: _('visualfilter_item_id'),
+			header: _('vf_filter_id'),
 			dataIndex: 'id',
+			sortable: true,
+			width: 60
+		},{
+            header: _('vf_filter_priority'),
+            dataIndex: 'priority',
+            sortable: true,
+            width: 70
+        }, {
+			header: _('vf_filter_code'),
+			dataIndex: 'code',
+			sortable: true,
+			width: 100
+		}, {
+			header: _('vf_filter_field'),
+			dataIndex: 'field',
+			sortable: false,
+			width: 200
+		}, {
+            header: _('vf_filter_method'),
+            dataIndex: 'method',
+            sortable: false,
+            width: 200
+        }, {
+            header: _('vf_filter_alias'),
+            dataIndex: 'alias',
+            sortable: false,
+            width: 200
+        }, {
+			header: _('vf_filter_active'),
+			dataIndex: 'active',
+			renderer: visualFilter.utils.renderBoolean,
 			sortable: true,
 			width: 70
 		}, {
-			header: _('visualfilter_item_name'),
-			dataIndex: 'name',
-			sortable: true,
-			width: 200,
-		}, {
-			header: _('visualfilter_item_description'),
-			dataIndex: 'description',
-			sortable: false,
-			width: 250,
-		}, {
-			header: _('visualfilter_item_active'),
-			dataIndex: 'active',
-			renderer: visualfilter.utils.renderBoolean,
-			sortable: true,
-			width: 100,
-		}, {
-			header: _('visualfilter_grid_actions'),
+			header: _('vf_grid_actions'),
 			dataIndex: 'actions',
-			renderer: visualfilter.utils.renderActions,
+			renderer: visualFilter.utils.renderActions,
 			sortable: false,
 			width: 100,
 			id: 'actions'
@@ -219,15 +234,15 @@ Ext.extend(visualfilter.grid.Items, MODx.grid.Grid, {
 
 	getTopBar: function (config) {
 		return [{
-			text: '<i class="icon icon-plus"></i>&nbsp;' + _('visualfilter_item_create'),
-			handler: this.createItem,
+			text: '<i class="icon icon-plus"></i>&nbsp;' + _('vf_item_create'),
+			handler: this.createFilter,
 			scope: this
 		}, '->', {
 			xtype: 'textfield',
 			name: 'query',
 			width: 200,
 			id: config.id + '-search-field',
-			emptyText: _('visualfilter_grid_search'),
+			emptyText: _('vf_grid_search'),
 			listeners: {
 				render: {
 					fn: function (tf) {
@@ -293,4 +308,4 @@ Ext.extend(visualfilter.grid.Items, MODx.grid.Grid, {
 		this.refresh();
 	}
 });
-Ext.reg('visualfilter-grid-items', visualfilter.grid.Items);
+Ext.reg('visualfilter-grid-filters', visualFilter.grid.Filters);

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Get a list of Items
+ * Get a list of vfFilter
  */
-class visualfilterOfficeItemGetListProcessor extends modObjectGetListProcessor {
-	public $objectType = 'visualfilterItem';
-	public $classKey = 'visualfilterItem';
-	public $defaultSortField = 'id';
-	public $defaultSortDirection = 'DESC';
+class vfFilterGetListProcessor extends modObjectGetListProcessor {
+	public $objectType = 'vfFilter';
+	public $classKey = 'vfFilter';
+	public $defaultSortField = 'priority';
+	public $defaultSortDirection = 'ASC';
 	//public $permission = 'list';
 
 
@@ -35,8 +35,7 @@ class visualfilterOfficeItemGetListProcessor extends modObjectGetListProcessor {
 		$query = trim($this->getProperty('query'));
 		if ($query) {
 			$c->where(array(
-				'name:LIKE' => "%{$query}%",
-				'OR:description:LIKE' => "%{$query}%",
+				'field:LIKE' => "%{$query}%",
 			));
 		}
 
@@ -56,9 +55,9 @@ class visualfilterOfficeItemGetListProcessor extends modObjectGetListProcessor {
 		// Edit
 		$array['actions'][] = array(
 			'cls' => '',
-			'icon' => 'fa fa-edit',
-			'title' => $this->modx->lexicon('visualfilter_item_update'),
-			//'multiple' => $this->modx->lexicon('visualfilter_items_update'),
+			'icon' => 'icon icon-edit',
+			'title' => $this->modx->lexicon('vf_item_update'),
+			//'multiple' => $this->modx->lexicon('vf_items_update'),
 			'action' => 'updateItem',
 			'button' => true,
 			'menu' => true,
@@ -67,9 +66,9 @@ class visualfilterOfficeItemGetListProcessor extends modObjectGetListProcessor {
 		if (!$array['active']) {
 			$array['actions'][] = array(
 				'cls' => '',
-				'icon' => 'fa fa-power-off action-green',
-				'title' => $this->modx->lexicon('visualfilter_item_enable'),
-				'multiple' => $this->modx->lexicon('visualfilter_items_enable'),
+				'icon' => 'icon icon-power-off action-green',
+				'title' => $this->modx->lexicon('vf_item_enable'),
+				'multiple' => $this->modx->lexicon('vf_items_enable'),
 				'action' => 'enableItem',
 				'button' => true,
 				'menu' => true,
@@ -78,9 +77,9 @@ class visualfilterOfficeItemGetListProcessor extends modObjectGetListProcessor {
 		else {
 			$array['actions'][] = array(
 				'cls' => '',
-				'icon' => 'fa fa-power-off action-gray',
-				'title' => $this->modx->lexicon('visualfilter_item_disable'),
-				'multiple' => $this->modx->lexicon('visualfilter_items_disable'),
+				'icon' => 'icon icon-power-off action-gray',
+				'title' => $this->modx->lexicon('vf_item_disable'),
+				'multiple' => $this->modx->lexicon('vf_items_disable'),
 				'action' => 'disableItem',
 				'button' => true,
 				'menu' => true,
@@ -90,9 +89,9 @@ class visualfilterOfficeItemGetListProcessor extends modObjectGetListProcessor {
 		// Remove
 		$array['actions'][] = array(
 			'cls' => '',
-			'icon' => 'fa fa-trash-o action-red',
-			'title' => $this->modx->lexicon('visualfilter_item_remove'),
-			'multiple' => $this->modx->lexicon('visualfilter_items_remove'),
+			'icon' => 'icon icon-trash-o action-red',
+			'title' => $this->modx->lexicon('vf_item_remove'),
+			'multiple' => $this->modx->lexicon('vf_items_remove'),
 			'action' => 'removeItem',
 			'button' => true,
 			'menu' => true,
@@ -103,4 +102,4 @@ class visualfilterOfficeItemGetListProcessor extends modObjectGetListProcessor {
 
 }
 
-return 'visualfilterOfficeItemGetListProcessor';
+return 'vfFilterGetListProcessor';

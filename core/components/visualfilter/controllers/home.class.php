@@ -4,9 +4,9 @@
  * The home manager controller for visualfilter.
  *
  */
-class visualfilterHomeManagerController extends visualfilterMainController {
-	/* @var visualfilter $visualfilter */
-	public $visualfilter;
+class visualFilterHomeManagerController extends visualfilterMainController {
+	/* @var visualFilter $visualFilter */
+	public $visualFilter;
 
 
 	/**
@@ -28,13 +28,13 @@ class visualfilterHomeManagerController extends visualfilterMainController {
 	 * @return void
 	 */
 	public function loadCustomCssJs() {
-		$this->addCss($this->visualfilter->config['cssUrl'] . 'mgr/main.css');
-		$this->addCss($this->visualfilter->config['cssUrl'] . 'mgr/bootstrap.buttons.css');
-		$this->addJavascript($this->visualfilter->config['jsUrl'] . 'mgr/misc/utils.js');
-		$this->addJavascript($this->visualfilter->config['jsUrl'] . 'mgr/widgets/items.grid.js');
-		$this->addJavascript($this->visualfilter->config['jsUrl'] . 'mgr/widgets/items.windows.js');
-		$this->addJavascript($this->visualfilter->config['jsUrl'] . 'mgr/widgets/home.panel.js');
-		$this->addJavascript($this->visualfilter->config['jsUrl'] . 'mgr/sections/home.js');
+		$this->addCss($this->visualFilter->config['cssUrl'] . 'mgr/main.css');
+		$this->addCss($this->visualFilter->config['cssUrl'] . 'mgr/bootstrap.buttons.css');
+		$this->addJavascript($this->visualFilter->config['jsUrl'] . 'mgr/misc/utils.js');
+		$this->addJavascript($this->visualFilter->config['jsUrl'] . 'mgr/widgets/filters.grid.js');
+		$this->addJavascript($this->visualFilter->config['jsUrl'] . 'mgr/widgets/filters.windows.js');
+		$this->addJavascript($this->visualFilter->config['jsUrl'] . 'mgr/widgets/home.panel.js');
+		$this->addJavascript($this->visualFilter->config['jsUrl'] . 'mgr/sections/home.js');
 		$this->addHtml('<script type="text/javascript">
 		Ext.onReady(function() {
 			MODx.load({ xtype: "visualfilter-page-home"});
@@ -47,6 +47,6 @@ class visualfilterHomeManagerController extends visualfilterMainController {
 	 * @return string
 	 */
 	public function getTemplateFile() {
-		return $this->visualfilter->config['templatesPath'] . 'home.tpl';
+		return $this->visualFilter->config['templatesPath'] . 'home.tpl';
 	}
 }

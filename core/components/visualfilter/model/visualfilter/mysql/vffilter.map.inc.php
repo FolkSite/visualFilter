@@ -1,30 +1,58 @@
 <?php
-$xpdo_meta_map['visualfilterItem']= array (
+$xpdo_meta_map['vfFilter']= array (
   'package' => 'visualfilter',
   'version' => '1.1',
-  'table' => 'visualfilter_items',
+  'table' => 'vf_filters',
   'extends' => 'xPDOSimpleObject',
   'fields' => 
   array (
-    'name' => '',
-    'description' => '',
+    'priority' => 0,
+    'code' => '',
+    'field' => '',
+    'method' => '',
+    'alias' => '',
     'active' => 1,
   ),
   'fieldMeta' => 
   array (
-    'name' => 
+    'priority' => 
+    array (
+      'dbtype' => 'int',
+      'precision' => '10',
+      'phptype' => 'integer',
+      'null' => false,
+      'default' => 0,
+    ),
+    'code' => 
     array (
       'dbtype' => 'varchar',
-      'precision' => '100',
+      'precision' => '50',
       'phptype' => 'string',
       'null' => false,
       'default' => '',
     ),
-    'description' => 
+    'field' => 
     array (
-      'dbtype' => 'text',
-      'phptype' => 'text',
-      'null' => true,
+      'dbtype' => 'varchar',
+      'precision' => '50',
+      'phptype' => 'string',
+      'null' => false,
+      'default' => '',
+    ),
+    'method' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '50',
+      'phptype' => 'string',
+      'null' => false,
+      'default' => '',
+    ),
+    'alias' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '50',
+      'phptype' => 'string',
+      'null' => false,
       'default' => '',
     ),
     'active' => 
@@ -38,22 +66,6 @@ $xpdo_meta_map['visualfilterItem']= array (
   ),
   'indexes' => 
   array (
-    'name' => 
-    array (
-      'alias' => 'name',
-      'primary' => false,
-      'unique' => false,
-      'type' => 'BTREE',
-      'columns' => 
-      array (
-        'name' => 
-        array (
-          'length' => '',
-          'collation' => 'A',
-          'null' => false,
-        ),
-      ),
-    ),
     'active' => 
     array (
       'alias' => 'active',

@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Class visualfilterMainController
+ * Class visualFilterMainController
  */
-abstract class visualfilterMainController extends modExtraManagerController {
-	/** @var visualfilter $visualfilter */
-	public $visualfilter;
+abstract class visualFilterMainController extends modExtraManagerController {
+	/** @var visualFilter $visualFilter */
+	public $visualFilter;
 
 
 	/**
@@ -15,13 +15,13 @@ abstract class visualfilterMainController extends modExtraManagerController {
 		$corePath = $this->modx->getOption('visualfilter_core_path', null, $this->modx->getOption('core_path') . 'components/visualfilter/');
 		require_once $corePath . 'model/visualfilter/visualfilter.class.php';
 
-		$this->visualfilter = new visualfilter($this->modx);
-		//$this->addCss($this->visualfilter->config['cssUrl'] . 'mgr/main.css');
-		$this->addJavascript($this->visualfilter->config['jsUrl'] . 'mgr/visualfilter.js');
+		$this->visualFilter = new visualFilter($this->modx);
+		//$this->addCss($this->visualFilter->config['cssUrl'] . 'mgr/main.css');
+		$this->addJavascript($this->visualFilter->config['jsUrl'] . 'mgr/visualfilter.js');
 		$this->addHtml('
 		<script type="text/javascript">
-			visualfilter.config = ' . $this->modx->toJSON($this->visualfilter->config) . ';
-			visualfilter.config.connector_url = "' . $this->visualfilter->config['connectorUrl'] . '";
+			visualFilter.config = ' . $this->modx->toJSON($this->visualFilter->config) . ';
+			visualFilter.config.connector_url = "' . $this->visualFilter->config['connectorUrl'] . '";
 		</script>
 		');
 
@@ -49,7 +49,7 @@ abstract class visualfilterMainController extends modExtraManagerController {
 /**
  * Class IndexManagerController
  */
-class IndexManagerController extends visualfilterMainController {
+class IndexManagerController extends visualFilterMainController {
 
 	/**
 	 * @return string

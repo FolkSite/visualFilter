@@ -1,10 +1,10 @@
-var visualfilter = function (config) {
+var visualFilter = function (config) {
 	config = config || {};
-	visualfilter.superclass.constructor.call(this, config);
+    visualFilter.superclass.constructor.call(this, config);
 };
-Ext.extend(visualfilter, Ext.Component, {
+Ext.extend(visualFilter, Ext.Component, {
 	page: {}, window: {}, grid: {}, tree: {}, panel: {}, combo: {}, config: {}, view: {}, utils: {}
 });
-Ext.reg('visualfilter', visualfilter);
+Ext.reg('visualFilter', visualFilter);
 
-visualfilter = new visualfilter();
+visualFilter = new visualFilter();

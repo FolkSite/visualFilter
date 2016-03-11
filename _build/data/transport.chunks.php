@@ -7,10 +7,6 @@ $tmp = array(
 		'file' => 'item',
 		'description' => '',
 	),
-	'tpl.visualfilter.office' => array(
-		'file' => 'office',
-		'description' => '',
-	),
 );
 
 // Save chunks for setup options

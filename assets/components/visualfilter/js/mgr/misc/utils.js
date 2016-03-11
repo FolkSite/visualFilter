@@ -1,10 +1,10 @@
-visualfilter.utils.renderBoolean = function (value, props, row) {
+visualFilter.utils.renderBoolean = function (value, props, row) {
 	return value
 		? String.format('<span class="green">{0}</span>', _('yes'))
 		: String.format('<span class="red">{0}</span>', _('no'));
 };
 
-visualfilter.utils.getMenu = function (actions, grid, selected) {
+visualFilter.utils.getMenu = function (actions, grid, selected) {
 	var menu = [];
 	var cls, icon, title, action = '';
 
@@ -51,7 +51,7 @@ visualfilter.utils.getMenu = function (actions, grid, selected) {
 };
 
 
-visualfilter.utils.renderActions = function (value, props, row) {
+visualFilter.utils.renderActions = function (value, props, row) {
 	var res = [];
 	var cls, icon, title, action, item = '';
 	for (var i in row.data.actions) {

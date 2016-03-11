@@ -3,8 +3,8 @@
 $menus = array();
 
 $tmp = array(
-	'visualfilter' => array(
-		'description' => 'visualfilter_menu_desc',
+	'visualFilter' => array(
+		'description' => 'vf_menu_desc',
 		'action' => array(
 			'controller' => 'index',
 		),

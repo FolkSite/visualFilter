@@ -1,34 +1,40 @@
 <?php
 include_once 'setting.inc.php';
 
-$_lang['visualfilter'] = 'visualfilter';
-$_lang['visualfilter_menu_desc'] = 'Пример расширения для разработки.';
-$_lang['visualfilter_intro_msg'] = 'Вы можете выделять сразу несколько предметов при помощи Shift или Ctrl.';
+$_lang['visualfilter'] = 'visualFilter';
+$_lang['visualFilter'] = 'visualFilter';
+$_lang['vf_menu_desc'] = 'Настройки фильтра.';
+$_lang['vf_intro_msg'] = 'Вы можете выделять сразу несколько записей при помощи Shift или Ctrl.';
 
-$_lang['visualfilter_items'] = 'Предметы';
-$_lang['visualfilter_item_id'] = 'Id';
-$_lang['visualfilter_item_name'] = 'Название';
-$_lang['visualfilter_item_description'] = 'Описание';
-$_lang['visualfilter_item_active'] = 'Активно';
+$_lang['vf_filters'] = 'Фильтры';
+$_lang['vf_filter_id'] = 'Id';
+$_lang['vf_filter_priority'] = 'Приоритет';
+$_lang['vf_filter_code'] = 'Код таблицы';
+$_lang['vf_filter_field'] = 'Поле';
+$_lang['vf_filter_method'] = 'Метод фильтрации';
+$_lang['vf_filter_alias'] = 'Псевдоним фильтра';
+$_lang['vf_filter_active'] = 'Активен';
 
-$_lang['visualfilter_item_create'] = 'Создать предмет';
-$_lang['visualfilter_item_update'] = 'Изменить Предмет';
-$_lang['visualfilter_item_enable'] = 'Включить Предмет';
-$_lang['visualfilter_items_enable'] = 'Включить Предметы';
-$_lang['visualfilter_item_disable'] = 'Отключить Предмет';
-$_lang['visualfilter_items_disable'] = 'Отключить Предметы';
-$_lang['visualfilter_item_remove'] = 'Удалить Предмет';
-$_lang['visualfilter_items_remove'] = 'Удалить Предметы';
-$_lang['visualfilter_item_remove_confirm'] = 'Вы уверены, что хотите удалить этот Предмет?';
-$_lang['visualfilter_items_remove_confirm'] = 'Вы уверены, что хотите удалить эти Предметы?';
-$_lang['visualfilter_item_active'] = 'Включено';
+$_lang['vf_item_create'] = 'Создать';
+$_lang['vf_item_update'] = 'Изменить';
+$_lang['vf_item_enable'] = 'Включить';
+$_lang['vf_items_enable'] = 'Включить';
+$_lang['vf_item_disable'] = 'Отключить';
+$_lang['vf_items_disable'] = 'Отключить';
+$_lang['vf_item_remove'] = 'Удалить';
+$_lang['vf_items_remove'] = 'Удалить';
+$_lang['vf_item_remove_confirm'] = 'Вы уверены, что хотите удалить эту записть?';
+$_lang['vf_items_remove_confirm'] = 'Вы уверены, что хотите удалить эти записи?';
+$_lang['vf_item_active'] = 'Включено';
 
-$_lang['visualfilter_item_err_name'] = 'Вы должны указать имя Предмета.';
-$_lang['visualfilter_item_err_ae'] = 'Предмет с таким именем уже существует.';
-$_lang['visualfilter_item_err_nf'] = 'Предмет не найден.';
-$_lang['visualfilter_item_err_ns'] = 'Предмет не указан.';
-$_lang['visualfilter_item_err_remove'] = 'Ошибка при удалении Предмета.';
-$_lang['visualfilter_item_err_save'] = 'Ошибка при сохранении Предмета.';
+$_lang['vf_filter_err_code'] = 'Вы должны указать код таблицы.';
+$_lang['vf_filter_err_field'] = 'Вы должны указать поле фильтрации.';
+$_lang['vf_filter_err_method'] = 'Вы должны указать метод фильтрации.';
+$_lang['vf_item_err_ae'] = 'Такая запись уже существует.';
+$_lang['vf_item_err_nf'] = 'Запись не найдена.';
+$_lang['vf_item_err_ns'] = 'Запись не указана.';
+$_lang['vf_item_err_remove'] = 'Ошибка при удалении записи.';
+$_lang['vf_item_err_save'] = 'Ошибка при сохранении записи.';
 
-$_lang['visualfilter_grid_search'] = 'Поиск';
-$_lang['visualfilter_grid_actions'] = 'Действия';
+$_lang['vf_grid_search'] = 'Поиск';
+$_lang['vf_grid_actions'] = 'Действия';
