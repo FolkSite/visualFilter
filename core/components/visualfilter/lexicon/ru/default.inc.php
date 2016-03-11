@@ -2,7 +2,7 @@
 include_once 'setting.inc.php';
 
 $_lang['visualfilter'] = 'visualFilter';
-$_lang['visualFilter'] = 'visualFilter';
+$_lang['visualFilter'] = 'Управление фильтром';
 $_lang['vf_menu_desc'] = 'Настройки фильтра.';
 $_lang['vf_intro_msg'] = 'Вы можете выделять сразу несколько записей при помощи Shift или Ctrl.';
 
@@ -14,6 +14,10 @@ $_lang['vf_filter_field'] = 'Поле';
 $_lang['vf_filter_method'] = 'Метод фильтрации';
 $_lang['vf_filter_alias'] = 'Псевдоним фильтра';
 $_lang['vf_filter_active'] = 'Активен';
+
+$_lang['vf_filter_tab_general'] = 'Общее';
+$_lang['vf_filter_create'] = 'Создать фильтр';
+$_lang['vf_filter_update'] = 'Изменить фильтр';
 
 $_lang['vf_item_create'] = 'Создать';
 $_lang['vf_item_update'] = 'Изменить';

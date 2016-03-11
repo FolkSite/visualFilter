@@ -68,7 +68,11 @@ Ext.extend(visualFilter.grid.Filters, MODx.grid.Grid, {
 			}
 		});
 		w.reset();
-		w.setValues({active: true});
+		w.setValues({
+            priority: 0,
+            method: 'default',
+            active: true
+        });
 		w.show(e.target);
 	},
 
