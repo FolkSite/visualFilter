@@ -6,8 +6,10 @@
         <field key="priority" dbtype="int" precision="10" phptype="integer" null="false" default="0"/>
 		<field key="code" dbtype="varchar" precision="50" phptype="string" null="false" default=""/>
         <field key="field" dbtype="varchar" precision="50" phptype="string" null="false" default=""/>
-        <field key="method" dbtype="varchar" precision="50" phptype="string" null="false" default=""/>
+        <field key="filter_method" dbtype="varchar" precision="50" phptype="string" null="false" default=""/>
         <field key="alias" dbtype="varchar" precision="50" phptype="string" null="false" default=""/>
+        <field key="title" dbtype="varchar" precision="255" phptype="string" null="false" default=""/>
+        <field key="description" dbtype="text" phptype="string" null="false" default=""/>
 		<field key="active" dbtype="tinyint" precision="1" phptype="boolean" null="true" default="1"/>
 
 		<index alias="active" name="active" primary="false" unique="false" type="BTREE">

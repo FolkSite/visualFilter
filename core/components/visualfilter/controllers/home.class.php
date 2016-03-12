@@ -31,6 +31,7 @@ class visualFilterHomeManagerController extends visualfilterMainController {
 		$this->addCss($this->visualFilter->config['cssUrl'] . 'mgr/main.css');
 		$this->addCss($this->visualFilter->config['cssUrl'] . 'mgr/bootstrap.buttons.css');
 		$this->addJavascript($this->visualFilter->config['jsUrl'] . 'mgr/misc/utils.js');
+        $this->addJavascript($this->visualFilter->config['jsUrl'] . 'mgr/misc/combos.js');
 		$this->addJavascript($this->visualFilter->config['jsUrl'] . 'mgr/widgets/filters.grid.js');
 		$this->addJavascript($this->visualFilter->config['jsUrl'] . 'mgr/widgets/filters.windows.js');
 		$this->addJavascript($this->visualFilter->config['jsUrl'] . 'mgr/widgets/home.panel.js');

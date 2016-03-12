@@ -58,33 +58,10 @@ class vfFilterGetListProcessor extends modObjectGetListProcessor {
 			'icon' => 'icon icon-edit',
 			'title' => $this->modx->lexicon('vf_item_update'),
 			//'multiple' => $this->modx->lexicon('vf_items_update'),
-			'action' => 'updateItem',
+			'action' => 'updateFilter',
 			'button' => true,
 			'menu' => true,
 		);
-
-		if (!$array['active']) {
-			$array['actions'][] = array(
-				'cls' => '',
-				'icon' => 'icon icon-power-off action-green',
-				'title' => $this->modx->lexicon('vf_item_enable'),
-				'multiple' => $this->modx->lexicon('vf_items_enable'),
-				'action' => 'enableItem',
-				'button' => true,
-				'menu' => true,
-			);
-		}
-		else {
-			$array['actions'][] = array(
-				'cls' => '',
-				'icon' => 'icon icon-power-off action-gray',
-				'title' => $this->modx->lexicon('vf_item_disable'),
-				'multiple' => $this->modx->lexicon('vf_items_disable'),
-				'action' => 'disableItem',
-				'button' => true,
-				'menu' => true,
-			);
-		}
 
 		// Remove
 		$array['actions'][] = array(
@@ -92,7 +69,7 @@ class vfFilterGetListProcessor extends modObjectGetListProcessor {
 			'icon' => 'icon icon-trash-o action-red',
 			'title' => $this->modx->lexicon('vf_item_remove'),
 			'multiple' => $this->modx->lexicon('vf_items_remove'),
-			'action' => 'removeItem',
+			'action' => 'removeFilter',
 			'button' => true,
 			'menu' => true,
 		);

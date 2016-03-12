@@ -1,12 +1,16 @@
-visualFilter.window.getFilterWindowFields = function (config, isCreate) {
+visualFilter.window.GetFilterWindowFields = function (config, isCreate) {
     var availableFields = {
         tab_general: {
-            priority: {xtype: 'numberfield', decimalPrecision: 0, anchor: '99%', allowBlank: false },
-            code: {xtype: 'textfield', anchor: '99%', allowBlank: false },
+            code: {xtype: 'visualfilter-combo-table-code', hiddenName: 'code', anchor: '99%', allowBlank: false },
             field: {xtype: 'textfield', anchor: '99%', allowBlank: false },
-            method: {xtype: 'textfield', anchor: '99%', allowBlank: false },
+            filter_method: {xtype: 'visualfilter-combo-filter-method', hiddenName: 'filter_method', anchor: '99%', allowBlank: false },
             alias: {xtype: 'textfield', anchor: '99%', allowBlank: true },
-            active: {xtype: 'combo-boolean', renderer: 'boolean', anchor: '99%', allowBlank: true }
+            priority: {xtype: 'numberfield', decimalPrecision: 0, anchor: '99%', allowBlank: false },
+            active: {xtype: 'xcheckbox', inputValue: 1 }
+        },
+        tab_info: {
+            title: {xtype: 'textfield', anchor: '99%', allowBlank: true },
+            description: {xtype: 'textarea', anchor: '99%', allowBlank: true }
         }
     };
 
@@ -50,9 +54,9 @@ visualFilter.window.getFilterWindowFields = function (config, isCreate) {
     });
 
     return result;
-}
+};
 
-visualFilter.window.CreateFilter = function (config) {
+visualFilter.window.CreateFilterItem = function (config) {
 	config = config || {};
 	if (!config.id) {
 		config.id = 'visualfilter-filter-window-create';
@@ -63,20 +67,20 @@ visualFilter.window.CreateFilter = function (config) {
 		autoHeight: true,
 		url: visualFilter.config.connector_url,
 		action: 'mgr/filter/create',
-		fields: visualFilter.window.getFilterWindowFields(config, true),
+		fields: visualFilter.window.GetFilterWindowFields(config, true),
 		keys: [{
 			key: Ext.EventObject.ENTER, shift: true, fn: function () {
 				this.submit()
 			}, scope: this
 		}]
 	});
-    visualFilter.window.CreateFilter.superclass.constructor.call(this, config);
+    visualFilter.window.CreateFilterItem.superclass.constructor.call(this, config);
 };
-Ext.extend(visualFilter.window.CreateFilter, MODx.Window, {});
-Ext.reg('visualfilter-filter-window-create', visualFilter.window.CreateFilter);
+Ext.extend(visualFilter.window.CreateFilterItem, MODx.Window, {});
+Ext.reg('visualfilter-filter-window-create', visualFilter.window.CreateFilterItem);
 
 
-visualFilter.window.UpdateFilter = function (config) {
+visualFilter.window.UpdateFilterItem = function (config) {
 	config = config || {};
 	if (!config.id) {
 		config.id = 'visualfilter-filter-window-update';
@@ -87,14 +91,14 @@ visualFilter.window.UpdateFilter = function (config) {
 		autoHeight: true,
 		url: visualFilter.config.connector_url,
 		action: 'mgr/filter/update',
-		fields: visualFilter.window.getFilterWindowFields(config, false),
+		fields: visualFilter.window.GetFilterWindowFields(config, false),
 		keys: [{
 			key: Ext.EventObject.ENTER, shift: true, fn: function () {
 				this.submit()
 			}, scope: this
 		}]
 	});
-    visualFilter.window.UpdateFilter.superclass.constructor.call(this, config);
+    visualFilter.window.UpdateFilterItem.superclass.constructor.call(this, config);
 };
-Ext.extend(visualFilter.window.UpdateFilter, MODx.Window, {});
-Ext.reg('visualfilter-filter-window-update', visualFilter.window.UpdateFilter);
+Ext.extend(visualFilter.window.UpdateFilterItem, MODx.Window, {});
+Ext.reg('visualfilter-filter-window-update', visualFilter.window.UpdateFilterItem);

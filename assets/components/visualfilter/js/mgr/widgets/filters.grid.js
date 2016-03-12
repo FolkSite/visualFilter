@@ -1,4 +1,4 @@
-visualFilter.grid.Filters = function (config) {
+visualFilter.grid.FiltersList = function (config) {
 	config = config || {};
 	if (!config.id) {
 		config.id = 'visualfilter-grid-filters';
@@ -34,7 +34,7 @@ visualFilter.grid.Filters = function (config) {
 		remoteSort: true,
 		autoHeight: true
 	});
-    visualFilter.grid.Filters.superclass.constructor.call(this, config);
+    visualFilter.grid.FiltersList.superclass.constructor.call(this, config);
 
 	// Clear selection on grid refresh
 	this.store.on('load', function () {
@@ -43,7 +43,7 @@ visualFilter.grid.Filters = function (config) {
 		}
 	}, this);
 };
-Ext.extend(visualFilter.grid.Filters, MODx.grid.Grid, {
+Ext.extend(visualFilter.grid.FiltersList, MODx.grid.Grid, {
 	windows: {},
 
 	getMenu: function (grid, rowIndex) {
@@ -70,7 +70,7 @@ Ext.extend(visualFilter.grid.Filters, MODx.grid.Grid, {
 		w.reset();
 		w.setValues({
             priority: 0,
-            method: 'default',
+            filter_method: 'default',
             active: true
         });
 		w.show(e.target);
@@ -143,59 +143,17 @@ Ext.extend(visualFilter.grid.Filters, MODx.grid.Grid, {
 		return true;
 	},
 
-	disableFilter: function (act, btn, e) {
-		var ids = this._getSelectedIds();
-		if (!ids.length) {
-			return false;
-		}
-		MODx.Ajax.request({
-			url: this.config.url,
-			params: {
-				action: 'mgr/filter/disable',
-				ids: Ext.util.JSON.encode(ids)
-			},
-			listeners: {
-				success: {
-					fn: function () {
-						this.refresh();
-					}, scope: this
-				}
-			}
-		})
-	},
-
-	enableFilter: function (act, btn, e) {
-		var ids = this._getSelectedIds();
-		if (!ids.length) {
-			return false;
-		}
-		MODx.Ajax.request({
-			url: this.config.url,
-			params: {
-				action: 'mgr/filter/enable',
-				ids: Ext.util.JSON.encode(ids)
-			},
-			listeners: {
-				success: {
-					fn: function () {
-						this.refresh();
-					}, scope: this
-				}
-			}
-		})
-	},
-
 	getFields: function (config) {
-		return ['id', 'name', 'description', 'active', 'actions'];
+		return ['id', 'priority', 'code', 'field', 'filter_method', 'alias', 'title', 'active', 'actions'];
 	},
 
 	getColumns: function (config) {
-		return [{
+		return [/*{
 			header: _('vf_filter_id'),
 			dataIndex: 'id',
 			sortable: true,
 			width: 60
-		},{
+		},*/{
             header: _('vf_filter_priority'),
             dataIndex: 'priority',
             sortable: true,
@@ -211,13 +169,18 @@ Ext.extend(visualFilter.grid.Filters, MODx.grid.Grid, {
 			sortable: false,
 			width: 200
 		}, {
-            header: _('vf_filter_method'),
-            dataIndex: 'method',
+            header: _('vf_filter_filter_method'),
+            dataIndex: 'filter_method',
             sortable: false,
             width: 200
         }, {
             header: _('vf_filter_alias'),
             dataIndex: 'alias',
+            sortable: false,
+            width: 200
+        }, {
+            header: _('vf_filter_title'),
+            dataIndex: 'title',
             sortable: false,
             width: 200
         }, {
@@ -312,4 +275,4 @@ Ext.extend(visualFilter.grid.Filters, MODx.grid.Grid, {
 		this.refresh();
 	}
 });
-Ext.reg('visualfilter-grid-filters', visualFilter.grid.Filters);
+Ext.reg('visualfilter-grid-filters', visualFilter.grid.FiltersList);

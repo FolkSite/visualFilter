@@ -9,7 +9,7 @@ $xpdo_meta_map['vfFilter']= array (
     'priority' => 0,
     'code' => '',
     'field' => '',
-    'method' => '',
+    'filter_method' => '',
     'alias' => '',
     'active' => 1,
   ),
@@ -39,7 +39,7 @@ $xpdo_meta_map['vfFilter']= array (
       'null' => false,
       'default' => '',
     ),
-    'method' => 
+    'filter_method' =>
     array (
       'dbtype' => 'varchar',
       'precision' => '50',

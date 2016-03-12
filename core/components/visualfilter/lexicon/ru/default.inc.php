@@ -11,13 +11,34 @@ $_lang['vf_filter_id'] = 'Id';
 $_lang['vf_filter_priority'] = 'Приоритет';
 $_lang['vf_filter_code'] = 'Код таблицы';
 $_lang['vf_filter_field'] = 'Поле';
-$_lang['vf_filter_method'] = 'Метод фильтрации';
+$_lang['vf_filter_filter_method'] = 'Метод фильтрации';
 $_lang['vf_filter_alias'] = 'Псевдоним фильтра';
+$_lang['vf_filter_title'] = 'Заголовок';
+$_lang['vf_filter_description'] = 'Описание';
 $_lang['vf_filter_active'] = 'Активен';
 
 $_lang['vf_filter_tab_general'] = 'Общее';
+$_lang['vf_filter_tab_info'] = 'Описание';
 $_lang['vf_filter_create'] = 'Создать фильтр';
 $_lang['vf_filter_update'] = 'Изменить фильтр';
+
+$_lang['vf_code_resource'] = 'resource / Поле страницы';
+$_lang['vf_code_tv'] = 'tv / TV параметр';
+$_lang['vf_code_ms'] = 'ms / Поле товара';
+$_lang['vf_code_msoption'] = 'msoption / Опция товара';
+$_lang['vf_code_msvendor'] = 'msvendor / Производитель';
+
+$_lang['vf_filter_method_default'] = 'default / По-умолчанию';
+$_lang['vf_filter_method_number'] = 'number / От-До';
+$_lang['vf_filter_method_boolean'] = 'boolean / Да/Нет';
+$_lang['vf_filter_method_parents'] = 'parents / Родители';
+$_lang['vf_filter_method_categories'] = 'categories / Родитель';
+$_lang['vf_filter_method_grandparents'] = 'grandparents / Категории-дедушки';
+$_lang['vf_filter_method_vendors'] = 'vendors / Производители';
+$_lang['vf_filter_method_fullname'] = 'fullname / Имя пользователя';
+$_lang['vf_filter_method_year'] = 'year / Год';
+$_lang['vf_filter_method_month'] = 'month / Месяц';
+$_lang['vf_filter_method_day'] = 'day / День';
 
 $_lang['vf_item_create'] = 'Создать';
 $_lang['vf_item_update'] = 'Изменить';
