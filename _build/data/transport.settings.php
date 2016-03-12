@@ -2,13 +2,12 @@
 
 $settings = array();
 
-$tmp = array(/*
-	'some_setting' => array(
-		'xtype' => 'combo-boolean',
-		'value' => true,
+$tmp = array(
+	'show_templates' => array(
+		'xtype' => 'textfield',
+		'value' => '*',
 		'area' => 'visualfilter_main',
 	),
-	*/
 );
 
 foreach ($tmp as $k => $v) {

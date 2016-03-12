@@ -2,15 +2,14 @@
 
 $plugins = array();
 
-$tmp = array(/*
-	'visualfilter' => array(
+$tmp = array(
+	'visualFilter' => array(
 		'file' => 'visualfilter',
 		'description' => '',
 		'events' => array(
-			'OnManagerPageInit' => array()
+			'OnDocFormRender' => array()
 		)
 	)
-	*/
 );
 
 foreach ($tmp as $k => $v) {

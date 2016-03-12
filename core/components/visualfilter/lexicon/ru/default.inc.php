@@ -3,6 +3,7 @@ include_once 'setting.inc.php';
 
 $_lang['visualfilter'] = 'visualFilter';
 $_lang['visualFilter'] = 'Управление фильтром';
+$_lang['visualFilterTab'] = 'Фильтры';
 $_lang['vf_menu_desc'] = 'Настройки фильтра.';
 $_lang['vf_intro_msg'] = 'Вы можете выделять сразу несколько записей при помощи Shift или Ctrl.';
 
