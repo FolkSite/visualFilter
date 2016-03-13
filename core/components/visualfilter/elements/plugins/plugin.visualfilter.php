@@ -37,12 +37,11 @@ switch ($modx->event->name) {
         $url = $visualFilter->config['assetsUrl'];
         $modx->controller->addJavascript($url . 'js/mgr/visualfilter.js');
         $modx->controller->addLastJavascript($url . 'js/mgr/misc/utils.js');
-        //$modx->controller->addLastJavascript($url . 'js/mgr/widgets/threads.grid.js');
-        //$modx->controller->addLastJavascript($url . 'js/mgr/widgets/threads.windows.js');
-        //$modx->controller->addLastJavascript($url . 'js/mgr/widgets/messages.grid.js');
-        //$modx->controller->addLastJavascript($url . 'js/mgr/widgets/messages.windows.js');
-        $modx->controller->addLastJavascript($url . 'js/mgr/widgets/page.panel.js');
+        $modx->controller->addLastJavascript($url . 'js/mgr/widgets/category-filters.grid.js');
+        $modx->controller->addLastJavascript($url . 'js/mgr/widgets/category-filters.windows.js');
+        $modx->controller->addLastJavascript($url . 'js/mgr/widgets/category.panel.js');
         $modx->controller->addCss($url . 'css/mgr/main.css');
+        $modx->controller->addCss($url . 'css/mgr/bootstrap.buttons.css');
 
         if ($modx->getCount('modPlugin', array('name' => 'AjaxManager', 'disabled' => false))) {
             $modx->controller->addHtml('
@@ -54,8 +53,8 @@ switch ($modx->event->name) {
 						var tabs = Ext.getCmp("modx-resource-tabs");
 						if (tabs) {
 							tabs.insert(3, {
-								xtype: "visualfilter-panel-page",
-								id: "visualfilter-panel-page",
+								xtype: "visualfilter-panel-category",
+								id: "visualfilter-panel-category",
 								title: _("visualFilterTab"),
 								record: {
 									id: ' . $resource->get('id') . '
@@ -74,8 +73,8 @@ switch ($modx->event->name) {
 				Ext.ComponentMgr.onAvailable("modx-resource-tabs", function() {
 					this.on("beforerender", function() {
 						this.insert(3, {
-							xtype: "visualfilter-panel-page",
-							id: "visualfilter-panel-page",
+							xtype: "visualfilter-panel-category",
+							id: "visualfilter-panel-category",
 							title: _("visualFilterTab"),
 							record: {
 								id: ' . $resource->get('id') . '

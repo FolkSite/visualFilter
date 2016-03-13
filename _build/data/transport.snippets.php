@@ -3,8 +3,8 @@
 $snippets = array();
 
 $tmp = array(
-	'visualfilter' => array(
-		'file' => 'visualfilter',
+	'vfFilters' => array(
+		'file' => 'filters',
 		'description' => '',
 	),
 );

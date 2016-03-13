@@ -11,6 +11,8 @@ $xpdo_meta_map['vfFilter']= array (
     'field' => '',
     'filter_method' => '',
     'alias' => '',
+    'title' => '',
+    'description' => '',
     'active' => 1,
   ),
   'fieldMeta' => 
@@ -39,7 +41,7 @@ $xpdo_meta_map['vfFilter']= array (
       'null' => false,
       'default' => '',
     ),
-    'filter_method' =>
+    'filter_method' => 
     array (
       'dbtype' => 'varchar',
       'precision' => '50',
@@ -51,6 +53,21 @@ $xpdo_meta_map['vfFilter']= array (
     array (
       'dbtype' => 'varchar',
       'precision' => '50',
+      'phptype' => 'string',
+      'null' => false,
+      'default' => '',
+    ),
+    'title' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '255',
+      'phptype' => 'string',
+      'null' => false,
+      'default' => '',
+    ),
+    'description' => 
+    array (
+      'dbtype' => 'text',
       'phptype' => 'string',
       'null' => false,
       'default' => '',
@@ -81,6 +98,17 @@ $xpdo_meta_map['vfFilter']= array (
           'null' => false,
         ),
       ),
+    ),
+  ),
+  'composites' => 
+  array (
+    'CategoryFilters' => 
+    array (
+      'class' => 'vfCategoryFilter',
+      'local' => 'id',
+      'foreign' => 'filter_id',
+      'cardinality' => 'many',
+      'owner' => 'local',
     ),
   ),
 );

@@ -3,13 +3,21 @@
 $properties = array();
 
 $tmp = array(
-	'tpl' => array(
+    'tvName' => array(
+        'type' => 'textfield',
+        'value' => 'visualFilter',
+    ),
+    'mode' => array(
+        'type' => 'list',
+        'options' => array(
+            array('text' => 'filters', 'value' => 'filters'),
+            array('text' => 'aliases', 'value' => 'aliases'),
+        ),
+        'value' => 'filters'
+    ),
+    'sortby' => array(
 		'type' => 'textfield',
-		'value' => 'tpl.visualfilter.item',
-	),
-	'sortby' => array(
-		'type' => 'textfield',
-		'value' => 'name',
+		'value' => 'priority',
 	),
 	'sortdir' => array(
 		'type' => 'list',
@@ -19,14 +27,10 @@ $tmp = array(
 		),
 		'value' => 'ASC'
 	),
-	'limit' => array(
-		'type' => 'numberfield',
-		'value' => 10,
-	),
-	'outputSeparator' => array(
-		'type' => 'textfield',
-		'value' => "\n",
-	),
+    'outputSeparator' => array(
+        'type' => 'textfield',
+        'value' => ',',
+    ),
 	'toPlaceholder' => array(
 		'type' => 'combo-boolean',
 		'value' => false,

@@ -27,7 +27,6 @@ $_lang['vf_code_resource'] = 'resource / Поле страницы';
 $_lang['vf_code_tv'] = 'tv / TV параметр';
 $_lang['vf_code_ms'] = 'ms / Поле товара';
 $_lang['vf_code_msoption'] = 'msoption / Опция товара';
-$_lang['vf_code_msvendor'] = 'msvendor / Производитель';
 
 $_lang['vf_filter_method_default'] = 'default / По-умолчанию';
 $_lang['vf_filter_method_number'] = 'number / От-До';
@@ -42,6 +41,7 @@ $_lang['vf_filter_method_month'] = 'month / Месяц';
 $_lang['vf_filter_method_day'] = 'day / День';
 
 $_lang['vf_item_create'] = 'Создать';
+$_lang['vf_item_add'] = 'Добавить';
 $_lang['vf_item_update'] = 'Изменить';
 $_lang['vf_item_enable'] = 'Включить';
 $_lang['vf_items_enable'] = 'Включить';
@@ -64,3 +64,10 @@ $_lang['vf_item_err_save'] = 'Ошибка при сохранении запи�
 
 $_lang['vf_grid_search'] = 'Поиск';
 $_lang['vf_grid_actions'] = 'Действия';
+
+$_lang['vf_page_intro_msg'] = 'Пустая таблица означает, что используется фильтр "по-умолчанию" или фильтр родительской категории (если задан). <br /> Будьте внимательны, изменения на этой вкладке сохраняются сразу.';
+$_lang['vf_category_filter_priority'] = 'Приоритет';
+$_lang['vf_category_filter_title'] = 'Фильтр';
+$_lang['vf_category_filter_value'] = 'Значение фильтра';
+$_lang['vf_category_filter_active'] = 'Активен';
+$_lang['vf_category_filter_filter_id'] = 'Фильтр';

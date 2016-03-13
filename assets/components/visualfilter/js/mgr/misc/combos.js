@@ -5,16 +5,15 @@ visualFilter.combo.TableCode = function(config) {
             id: 0,
             fields: ['code', 'title'],
             data: [
-                ['resource ', _('vf_code_resource')],
-                ['tv ', _('vf_code_tv')],
-                ['ms ', _('vf_code_ms')],
-                ['msoption ', _('vf_code_msoption')],
-                ['msvendor  ', _('vf_code_msvendor')]
+                ['resource', _('vf_code_resource')],
+                ['tv', _('vf_code_tv')],
+                ['ms', _('vf_code_ms')],
+                ['msoption', _('vf_code_msoption')]
             ]
         }),
         mode: 'local',
-        displayField: 'title',
-        valueField: 'code'
+        valueField: 'code',
+        displayField: 'title'
     });
     visualFilter.combo.TableCode.superclass.constructor.call(this,config);
 };
@@ -43,8 +42,8 @@ visualFilter.combo.FilterMethod = function(config) {
             ]
         }),
         mode: 'local',
-        displayField: 'title',
-        valueField: 'method'
+        valueField: 'method',
+        displayField: 'title'
     });
     visualFilter.combo.FilterMethod.superclass.constructor.call(this,config);
 };
