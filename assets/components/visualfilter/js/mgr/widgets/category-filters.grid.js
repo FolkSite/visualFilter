@@ -66,6 +66,7 @@ Ext.extend(visualFilter.grid.PageFilters, MODx.grid.Grid, {
 				success: {
 					fn: function () {
 						this.refresh();
+                        MODx.fireResourceFormChange();
 					}, scope: this
 				}
 			}
@@ -89,6 +90,7 @@ Ext.extend(visualFilter.grid.PageFilters, MODx.grid.Grid, {
                 success: {
                     fn: function (r) {
                         this.refresh();
+                        MODx.fireResourceFormChange();
                     }, scope: this
                 }
             }
@@ -107,6 +109,7 @@ Ext.extend(visualFilter.grid.PageFilters, MODx.grid.Grid, {
                 success: {
                     fn: function (r) {
                         this.refresh();
+                        MODx.fireResourceFormChange();
                     }, scope: this
                 }
             }
@@ -139,6 +142,7 @@ Ext.extend(visualFilter.grid.PageFilters, MODx.grid.Grid, {
 								success: {
 									fn: function () {
 										this.refresh();
+                                        MODx.fireResourceFormChange();
 									}, scope: this
 								}
 							}
@@ -173,6 +177,7 @@ Ext.extend(visualFilter.grid.PageFilters, MODx.grid.Grid, {
 				success: {
 					fn: function (r) {
 						this.refresh();
+                        MODx.fireResourceFormChange();
 					}, scope: this
 				}
 			}

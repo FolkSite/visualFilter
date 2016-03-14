@@ -3,10 +3,10 @@
 $properties = array();
 
 $tmp = array(
-    'tvName' => array(
+    /*'tvName' => array(
         'type' => 'textfield',
         'value' => 'visualFilter',
-    ),
+    ),*/
     'mode' => array(
         'type' => 'list',
         'options' => array(

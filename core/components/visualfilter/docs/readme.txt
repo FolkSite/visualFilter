@@ -1,10 +1,7 @@
 --------------------
-visualfilter
+visualFilter
 --------------------
-Author: John Doe <john@doe.com>
+Автор: Компания КреатАйТи <info@createit.ru>
 --------------------
 
-A basic Extra for MODx Revolution.
-
-Feel free to suggest ideas/improvements/bugs on GitHub:
-http://github.com/username/visualfilter/issues
+Модуль для визуального управления фильтрами в категориях

@@ -1,7 +1,8 @@
 visualFilter.window.GetCategoryFilterWindowFields = function (config, isCreate) {
     var availableFields = {
         category_id: {xtype: 'hidden', anchor: '99%', allowBlank: false },
-        filter_id: {xtype: 'visualfilter-combo-filter', hiddenName: 'filter_id', anchor: '99%', allowBlank: false }
+        filter_id: {xtype: 'visualfilter-combo-filter', hiddenName: 'filter_id', anchor: '99%', allowBlank: false },
+        priority: {xtype: 'textfield', anchor: '99%', allowBlank: false }
     };
 
     var fields = [];

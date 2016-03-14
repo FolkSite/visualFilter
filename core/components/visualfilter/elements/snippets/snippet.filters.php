@@ -6,39 +6,40 @@ if (!$visualFilter = $modx->getService('visualFilter', 'visualFilter', $modx->ge
 }
 
 // Do your snippet code here. This demo grabs 5 items from our custom table.
-$tvName = $modx->getOption('tvName', $scriptProperties, 'visualFilter');
+//$tvName = $modx->getOption('tvName', $scriptProperties, 'visualFilter');
 $mode = $modx->getOption('mode', $scriptProperties, 'filters');
 $sortby = $modx->getOption('sortby', $scriptProperties, 'priority');
 $sortdir = $modx->getOption('sortbir', $scriptProperties, 'ASC');
 $outputSeparator = $modx->getOption('outputSeparator', $scriptProperties, ',');
 $toPlaceholder = $modx->getOption('toPlaceholder', $scriptProperties, false);
 
-$categoryFilters = $modx->resource->getTVValue($tvName);
+$categoryFilters = array();
 
-if(empty($categoryFilters)) {
-    // Get parent IDs
-    $parents = array();
-    foreach ($modx->getParentIds($modx->resource->get('id'), 10, array('context' => $modx->resource->get('context_key'))) as $parentId) {
-        if ($parentId) {
-            array_push($parents, $parentId);
-        }
+$ids = array(
+    $modx->resource->get('id')
+);
+$ids = array_merge($ids, $modx->getParentIds($modx->resource->get('id'), 10, array('context' => $modx->resource->get('context_key'))));
+
+foreach($ids as $id) {
+    if($id == 0) {
+        break;
     }
-
-    foreach ($parents as $parentId) {
-        $parent = $modx->getObject('modResource', $parentId);
-        if ($categoryFilters = $parent->getTVValue($tvName)) {
-            if(!empty($categoryFilters)) {
-                break;
-            }
+    $count = $modx->getCount('vfCategoryFilter', array('category_id' => $id));
+    if($count > 0) {
+        $q = $modx->newQuery('vfCategoryFilter', array('category_id' => $id));
+        $q->sortby('priority', 'ASC');
+        foreach($modx->getIterator('vfCategoryFilter', $q) as $cf){
+            $categoryFilters[] = $cf->get('filter_id');
         }
+        break;
     }
 }
 
 // Build query
 $q = $modx->newQuery('vfFilter');
 if(!empty($categoryFilters)) {
-    $q->where(array('`vfFilter`.`id`:IN' => explode(",", $categoryFilters)));
-    $q->sortby('FIELD(`vfFilter`.`id`, '.$categoryFilters.' )');
+    $q->where(array('`vfFilter`.`id`:IN' => $categoryFilters));
+    $q->sortby('FIELD(`vfFilter`.`id`, '.implode(",", $categoryFilters).' )');
 }
 else {
     $q->sortby($sortby, $sortdir);
