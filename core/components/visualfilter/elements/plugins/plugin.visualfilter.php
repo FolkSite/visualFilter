@@ -36,6 +36,7 @@ switch ($modx->event->name) {
         $modx->controller->addLexiconTopic('visualfilter:default');
         $url = $visualFilter->config['assetsUrl'];
         $modx->controller->addJavascript($url . 'js/mgr/visualfilter.js');
+        $modx->controller->addLastJavascript($url . 'js/mgr/misc/combos.js');
         $modx->controller->addLastJavascript($url . 'js/mgr/misc/utils.js');
         $modx->controller->addLastJavascript($url . 'js/mgr/widgets/category-filters.grid.js');
         $modx->controller->addLastJavascript($url . 'js/mgr/widgets/category-filters.windows.js');

@@ -45,7 +45,10 @@ class vfCategoryFilterGetListProcessor extends modObjectGetListProcessor {
 		$query = trim($this->getProperty('query'));
 		if ($query) {
 			$c->where(array(
-				//'field:LIKE' => "%{$query}%",
+				'`Filter`.`title`:LIKE' => "%{$query}%",
+                'OR:`Filter`.`code`:LIKE' => "%{$query}%",
+                'OR:`Filter`.`field`:LIKE' => "%{$query}%",
+                'OR:`Filter`.`filter_method`:LIKE' => "%{$query}%",
 			));
 		}
 

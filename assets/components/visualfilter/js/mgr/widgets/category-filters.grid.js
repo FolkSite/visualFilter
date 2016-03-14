@@ -76,6 +76,42 @@ Ext.extend(visualFilter.grid.PageFilters, MODx.grid.Grid, {
         });
 		w.show(e.target);
 	},
+    cloneCategoryFilters: function (btn, e) {
+        MODx.msg.confirm({
+            title: _('vf_category_filters_clone'),
+            text: _('vf_category_filters_clone_confirm'),
+            url: this.config.url,
+            params: {
+                action: 'mgr/category-filter/clone',
+                category_id: this.config.record.id
+            },
+            listeners: {
+                success: {
+                    fn: function (r) {
+                        this.refresh();
+                    }, scope: this
+                }
+            }
+        });
+    },
+    fillCategoryFilters: function (btn, e) {
+        MODx.msg.confirm({
+            title: _('vf_category_filters_fill'),
+            text: _('vf_category_filters_fill_confirm'),
+            url: this.config.url,
+            params: {
+                action: 'mgr/category-filter/fill',
+                category_id: this.config.record.id
+            },
+            listeners: {
+                success: {
+                    fn: function (r) {
+                        this.refresh();
+                    }, scope: this
+                }
+            }
+        });
+    },
 
 	updateCategoryFilter: function (btn, e, row) {
 		if (typeof(row) != 'undefined') {
@@ -187,10 +223,20 @@ Ext.extend(visualFilter.grid.PageFilters, MODx.grid.Grid, {
 
 	getTopBar: function (config) {
 		return [{
-			text: '<i class="icon icon-plus"></i>&nbsp;' + _('vf_item_add'),
+			text: '<i class="icon icon-plus"></i>&nbsp;' + _('vf_category_filters_action_add'),
 			handler: this.createCategoryFilter,
 			scope: this
-		}, '->', {
+		},{
+            text: '<i class="icon icon-level-up"></i>&nbsp;' + _('vf_category_filters_action_clone'),
+            handler: this.cloneCategoryFilters,
+            scope: this
+        },{
+            text: '<i class="icon icon-th-list"></i>&nbsp;' + _('vf_category_filters_action_fill'),
+            handler: this.fillCategoryFilters,
+            scope: this
+        },
+            '->',
+        {
 			xtype: 'textfield',
 			name: 'query',
 			width: 200,

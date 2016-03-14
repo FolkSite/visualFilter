@@ -49,3 +49,27 @@ visualFilter.combo.FilterMethod = function(config) {
 };
 Ext.extend(visualFilter.combo.FilterMethod,MODx.combo.ComboBox);
 Ext.reg('visualfilter-combo-filter-method', visualFilter.combo.FilterMethod);
+
+
+
+visualFilter.combo.Filter = function(config) {
+    config = config || {};
+    Ext.applyIf(config,{
+        fields: ['id','title']
+        ,valueField: 'id'
+        ,displayField: 'title'
+        ,allowBlank: true
+        ,url: visualFilter.config.connector_url
+        ,baseParams: {
+            action: 'mgr/filter/getcombolist'
+            ,combo: 1
+            ,id: config.value
+        }
+        ,pageSize: 20
+        ,width: 300
+        ,editable: true
+    });
+    visualFilter.combo.Filter.superclass.constructor.call(this,config);
+};
+Ext.extend(visualFilter.combo.Filter, MODx.combo.ComboBox);
+Ext.reg('visualfilter-combo-filter',visualFilter.combo.Filter);
