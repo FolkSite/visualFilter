@@ -18,7 +18,7 @@ $categoryFilters = $modx->resource->getTVValue($tvName);
 if(empty($categoryFilters)) {
     // Get parent IDs
     $parents = array();
-    foreach ($modx->getParentIds($modx->resource->get('id'), 10, array('context' => $modx->resource->get('context'))) as $parentId) {
+    foreach ($modx->getParentIds($modx->resource->get('id'), 10, array('context' => $modx->resource->get('context_key'))) as $parentId) {
         if ($parentId) {
             array_push($parents, $parentId);
         }
