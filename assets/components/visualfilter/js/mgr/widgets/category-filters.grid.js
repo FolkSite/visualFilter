@@ -16,6 +16,7 @@ visualFilter.grid.PageFilters = function (config) {
             category_id: config.record.id
 		},
 		listeners: {
+            render: {fn: this._initDD, scope: this},
 			rowDblClick: function (grid, rowIndex, e) {
 				var row = grid.store.getAt(rowIndex);
 				this.updateCategoryFilter(grid, e, row);
@@ -35,7 +36,10 @@ visualFilter.grid.PageFilters = function (config) {
 		},
 		paging: true,
 		remoteSort: true,
-		autoHeight: true
+		autoHeight: true,
+        // Drag & drop
+        ddGroup: 'dd',
+        enableDragDrop: true
 	});
     visualFilter.grid.PageFilters.superclass.constructor.call(this, config);
 
@@ -48,6 +52,34 @@ visualFilter.grid.PageFilters = function (config) {
 };
 Ext.extend(visualFilter.grid.PageFilters, MODx.grid.Grid, {
 	windows: {},
+
+    // init Drag & Drop
+    _initDD: function(grid) {
+        new Ext.dd.DropTarget(grid.el, {
+            ddGroup : 'dd',
+            copy:   false,
+            notifyDrop : function(dd, e, data) {
+                var store = grid.store.data.items;
+                var target = store[dd.getDragData(e).rowIndex].data;
+                var source = store[data.rowIndex].data;
+                if ((target.parent == source.parent) && (target.id != source.id)) {
+                    dd.el.mask(_('loading'),'x-mask-loading');
+                    MODx.Ajax.request({
+                        url: visualFilter.config.connector_url,
+                        params: {
+                            action: 'mgr/category-filter/sort',
+                            source: source.id,
+                            target: target.id
+                        },
+                        listeners: {
+                            success: {fn:function(r) {dd.el.unmask();grid.refresh();MODx.fireResourceFormChange();},scope:grid},
+                            failure: {fn:function(r) {dd.el.unmask();},scope:grid}
+                        }
+                    });
+                }
+            }
+        });
+    },
 
 	getMenu: function (grid, rowIndex) {
 		var ids = this._getSelectedIds();
