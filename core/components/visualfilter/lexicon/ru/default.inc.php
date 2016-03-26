@@ -1,10 +1,14 @@
 <?php
 include_once 'setting.inc.php';
 
-$_lang['visualfilter'] = 'visualFilter';
-$_lang['visualFilter'] = 'Управление фильтром';
+$_lang['superFilter'] = 'Фильтры';
+$_lang['superFilter_menu'] = 'Фильтры';
+$_lang['superFilter_menu_desc'] = 'Управление фильтрами';
+
+$_lang['visualfilter'] = 'Настройка Фильтров';
+$_lang['visualFilter'] = 'Настройка Фильтров';
+$_lang['vf_menu_desc'] = 'Создание фильтров, их настройка';
 $_lang['visualFilterTab'] = 'Фильтры';
-$_lang['vf_menu_desc'] = 'Настройки фильтра.';
 $_lang['vf_intro_msg'] = 'Вы можете выделять сразу несколько записей при помощи Shift или Ctrl.';
 
 $_lang['vf_filters'] = 'Фильтры';
