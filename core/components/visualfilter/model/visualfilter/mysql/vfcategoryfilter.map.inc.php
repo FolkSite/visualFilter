@@ -6,12 +6,29 @@ $xpdo_meta_map['vfCategoryFilter']= array (
   'extends' => 'xPDOSimpleObject',
   'fields' => 
   array (
-    'priority' => 0,
     'category_id' => 0,
     'filter_id' => 0,
+    'priority' => 0,
+    'collapse' => '',
   ),
   'fieldMeta' => 
   array (
+    'category_id' => 
+    array (
+      'dbtype' => 'int',
+      'precision' => '10',
+      'phptype' => 'integer',
+      'null' => false,
+      'default' => 0,
+    ),
+    'filter_id' => 
+    array (
+      'dbtype' => 'int',
+      'precision' => '10',
+      'phptype' => 'integer',
+      'null' => false,
+      'default' => 0,
+    ),
     'priority' => 
     array (
       'dbtype' => 'int',
@@ -20,21 +37,13 @@ $xpdo_meta_map['vfCategoryFilter']= array (
       'null' => false,
       'default' => 0,
     ),
-    'category_id' =>
+    'collapse' => 
     array (
-      'dbtype' => 'int',
-      'precision' => '10',
-      'phptype' => 'integer',
-      'null' => false,
-      'default' => 0,
-    ),
-    'filter_id' =>
-    array (
-      'dbtype' => 'int',
-      'precision' => '10',
-      'phptype' => 'integer',
-      'null' => false,
-      'default' => 0,
+      'dbtype' => 'varchar',
+      'precision' => '1',
+      'phptype' => 'string',
+      'null' => true,
+      'default' => '',
     ),
   ),
   'aggregates' => 

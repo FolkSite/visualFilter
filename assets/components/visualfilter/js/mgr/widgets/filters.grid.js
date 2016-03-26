@@ -176,7 +176,7 @@ Ext.extend(visualFilter.grid.FiltersList, MODx.grid.Grid, {
 	},
 
 	getFields: function (config) {
-		return ['id', 'priority', 'code', 'field', 'filter_method', 'alias', 'title', 'active', 'actions'];
+		return ['id', 'priority', 'code', 'field', 'filter_method', 'alias', 'title', 'active', 'collapse', 'actions'];
 	},
 
 	getColumns: function (config) {
@@ -221,6 +221,12 @@ Ext.extend(visualFilter.grid.FiltersList, MODx.grid.Grid, {
 			renderer: visualFilter.utils.renderBoolean,
 			sortable: true,
 			width: 70
+        }, {
+            header: _('vf_filter_collapse'),
+            dataIndex: 'collapse',
+            renderer: visualFilter.utils.renderBoolean,
+            sortable: true,
+            width: 70
 		}, {
 			header: _('vf_grid_actions'),
 			dataIndex: 'actions',

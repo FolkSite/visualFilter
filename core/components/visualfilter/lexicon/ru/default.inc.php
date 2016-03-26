@@ -21,6 +21,7 @@ $_lang['vf_filter_alias'] = 'Псевдоним фильтра';
 $_lang['vf_filter_title'] = 'Заголовок';
 $_lang['vf_filter_description'] = 'Описание';
 $_lang['vf_filter_active'] = 'Активен';
+$_lang['vf_filter_collapse'] = 'Свернут';
 
 $_lang['vf_filter_tab_general'] = 'Общее';
 $_lang['vf_filter_tab_info'] = 'Описание';
@@ -56,6 +57,7 @@ $_lang['vf_items_remove'] = 'Удалить';
 $_lang['vf_item_remove_confirm'] = 'Вы уверены, что хотите удалить эту записть?';
 $_lang['vf_items_remove_confirm'] = 'Вы уверены, что хотите удалить эти записи?';
 $_lang['vf_item_active'] = 'Включено';
+$_lang['vf_default'] = 'По-умолчанию';
 
 $_lang['vf_category_filters_action_add'] = 'Добавить';
 $_lang['vf_category_filters_action_clone'] = 'Скопировать из верхней категории';
@@ -86,4 +88,5 @@ $_lang['vf_category_filter_priority'] = 'Приоритет';
 $_lang['vf_category_filter_title'] = 'Фильтр';
 $_lang['vf_category_filter_value'] = 'Значение фильтра';
 $_lang['vf_category_filter_active'] = 'Активен';
+$_lang['vf_category_filter_collapse'] = 'Свернут';
 $_lang['vf_category_filter_filter_id'] = 'Выберите Фильтр:';

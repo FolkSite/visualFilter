@@ -13,6 +13,7 @@ $xpdo_meta_map['vfFilter']= array (
     'alias' => '',
     'title' => '',
     'description' => '',
+    'collapse' => 0,
     'active' => 1,
   ),
   'fieldMeta' => 
@@ -71,6 +72,14 @@ $xpdo_meta_map['vfFilter']= array (
       'phptype' => 'string',
       'null' => false,
       'default' => '',
+    ),
+    'collapse' => 
+    array (
+      'dbtype' => 'tinyint',
+      'precision' => '1',
+      'phptype' => 'boolean',
+      'null' => true,
+      'default' => 0,
     ),
     'active' => 
     array (

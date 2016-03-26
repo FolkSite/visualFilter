@@ -73,3 +73,25 @@ visualFilter.combo.Filter = function(config) {
 };
 Ext.extend(visualFilter.combo.Filter, MODx.combo.ComboBox);
 Ext.reg('visualfilter-combo-filter',visualFilter.combo.Filter);
+
+
+visualFilter.combo.NullBoolean = function(config) {
+    config = config || {};
+    Ext.applyIf(config,{
+        store: new Ext.data.ArrayStore({
+            id: 0,
+            fields: ['value', 'title'],
+            data: [
+                ['', _('vf_default')],
+                ['1', _('yes')],
+                ['0', _('no')]
+            ]
+        }),
+        mode: 'local',
+        valueField: 'value',
+        displayField: 'title'
+    });
+    visualFilter.combo.NullBoolean.superclass.constructor.call(this,config);
+};
+Ext.extend(visualFilter.combo.NullBoolean,MODx.combo.ComboBox);
+Ext.reg('visualfilter-combo-null-boolean', visualFilter.combo.NullBoolean);

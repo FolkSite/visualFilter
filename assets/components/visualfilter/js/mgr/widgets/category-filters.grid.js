@@ -218,7 +218,7 @@ Ext.extend(visualFilter.grid.PageFilters, MODx.grid.Grid, {
 	},
 
 	getFields: function (config) {
-		return ['id', 'priority', 'filter_title', 'filter_value', 'active', 'actions'];
+		return ['id', 'priority', 'filter_title', 'filter_value', 'active', 'collapse', 'actions'];
 	},
 
 	getColumns: function (config) {
@@ -248,6 +248,12 @@ Ext.extend(visualFilter.grid.PageFilters, MODx.grid.Grid, {
 			renderer: visualFilter.utils.renderBoolean,
 			sortable: false,
 			width: 70
+        }, {
+            header: _('vf_category_filter_collapse'),
+            dataIndex: 'collapse',
+            renderer: visualFilter.utils.renderNullBoolean,
+            sortable: false,
+            width: 70
 		}, {
 			header: _('vf_grid_actions'),
 			dataIndex: 'actions',

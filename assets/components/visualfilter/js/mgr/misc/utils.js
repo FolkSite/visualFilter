@@ -4,6 +4,16 @@ visualFilter.utils.renderBoolean = function (value, props, row) {
 		: String.format('<span class="red">{0}</span>', _('no'));
 };
 
+visualFilter.utils.renderNullBoolean = function (value, props, row) {
+    if(value == '1') {
+        return String.format('<span class="green">{0}</span>', _('yes'));
+    }
+    if(value == '0') {
+        return String.format('<span class="red">{0}</span>', _('no'));
+    }
+    return String.format('<span>{0}</span>', _('vf_default'));
+};
+
 visualFilter.utils.getMenu = function (actions, grid, selected) {
 	var menu = [];
 	var cls, icon, title, action = '';

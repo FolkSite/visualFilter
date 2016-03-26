@@ -5,12 +5,13 @@ visualFilter.window.GetFilterWindowFields = function (config, isCreate) {
             field: {xtype: 'textfield', anchor: '99%', allowBlank: false },
             filter_method: {xtype: 'visualfilter-combo-filter-method', hiddenName: 'filter_method', anchor: '99%', allowBlank: false },
             alias: {xtype: 'textfield', anchor: '99%', allowBlank: true },
-            priority: {xtype: 'numberfield', decimalPrecision: 0, anchor: '99%', allowBlank: false },
+            //priority: {xtype: 'numberfield', decimalPrecision: 0, anchor: '99%', allowBlank: false },
             active: {xtype: 'xcheckbox', inputValue: 1 }
         },
         tab_info: {
             title: {xtype: 'textfield', anchor: '99%', allowBlank: true },
-            description: {xtype: 'textarea', anchor: '99%', allowBlank: true }
+            description: {xtype: 'textarea', anchor: '99%', allowBlank: true },
+            collapse: {xtype: 'xcheckbox', inputValue: 1 }
         }
     };
 
