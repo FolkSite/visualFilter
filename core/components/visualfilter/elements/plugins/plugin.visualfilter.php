@@ -1,6 +1,13 @@
 <?php
 /** @var array $scriptProperties */
 switch ($modx->event->name) {
+
+    case 'OnSiteRefresh':
+        if ($modx->cacheManager->refresh(array('default/visual_filter' => array()))) {
+            $modx->log(modX::LOG_LEVEL_INFO, $modx->lexicon('refresh_default') . ': Visual Filter');
+        }
+        break;
+
     case 'OnDocFormRender':
         if ($mode == 'new') {
             return;

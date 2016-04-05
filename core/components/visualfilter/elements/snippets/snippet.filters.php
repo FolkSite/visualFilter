@@ -48,6 +48,7 @@ $filters = $modx->getIterator('vfFilter', $q);
 
 // Iterate through items
 $list = array();
+$filtersOrder = array();
 /** @var vfFilter $filter */
 foreach ($filters as $filter) {
     $f = '';
@@ -64,6 +65,21 @@ foreach ($filters as $filter) {
     if(!empty($f)){
 	    $list[] = $f;
     }
+
+    // filters order
+    $alias = $filter->get('alias');
+    if(!empty($alias)) {
+        $filtersOrder[] = $alias;
+    } else {
+        $filtersOrder = $filter->get('code').'|'.$filter->get('field');
+    }
+}
+
+// cache filters order
+$cacheOptions = array( xPDO::OPT_CACHE_KEY => 'default/visual_filter' );
+$cacheKey = 'category_'.$modx->resource->get('id').'_filters';
+if(!$modx->cacheManager->get($cacheKey, $cacheOptions)) {
+    $modx->cacheManager->set($cacheKey, $filtersOrder, 0, $cacheOptions);
 }
 
 // Output

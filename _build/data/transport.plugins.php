@@ -7,7 +7,8 @@ $tmp = array(
 		'file' => 'visualfilter',
 		'description' => '',
 		'events' => array(
-			'OnDocFormRender' => array()
+            'OnSiteRefresh' => array(),
+            'OnDocFormRender' => array(),
 		)
 	)
 );
